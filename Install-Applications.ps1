@@ -1,10 +1,14 @@
 $ResolveWingetPath = "C:\Program Files\WindowsApps\Microsoft.DesktopAppInstaller_*_x64__8wekyb3d8bbwe\winget.exe"
 $AppInstallList = 
 @(
-    "Google.Chrome",
-    "Notepad++",
-    "Git.Git",
+    "Google.Chrome"
+    "Notepad++.Notepad++"
+    "Git.Git"
     "7zip.7zip"
+    "Adobe.Acrobat.Reader.64-bit"
+    "Microsoft.LAPS"
+    "Citrix.Workspace"
+    "WinSCP.WinSCP"
 )
 #WebClient
 $dc = New-Object net.webclient
