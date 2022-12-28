@@ -8,7 +8,6 @@ $AppInstallList =
     "Adobe.Acrobat.Reader.64-bit"
     "Microsoft.LAPS"
     "Citrix.Workspace"
-    "WinSCP.WinSCP"
 )
 #WebClient
 $dc = New-Object net.webclient
