@@ -29,6 +29,7 @@ $PackagesToRemove = @(
     "Microsoft.Xbox.TCUI"
     "Microsoft.XboxApp"
     "Microsoft.XboxGameOverlay"
+    "Microsoft.XboxGamingOverlay"
     "Microsoft.XboxIdentityProvider"
     "Microsoft.XboxSpeechToTextOverlay"
     "Microsoft.XboxGameCallableUI"
@@ -42,7 +43,9 @@ $PackagesToRemove = @(
     "Microsoft.GetHelp"
     "Microsoft.GamingOverlay"
     "Microsoft.YourPhone"
-    "Microsoft.MixedRealityPortal"
+    "Microsoft.MixedReality.Portal"
+    "Microsoft.Getstarted"
+    "Microsoft.MSPaint"
 )
 $JSON = Get-Content "$VDOTSubPath\2009\ConfigurationFiles\AppxPackages.json" | ConvertFrom-Json
 foreach ($Item in $JSON) {
@@ -60,7 +63,9 @@ Start-Process -FilePath "powershell.exe" -ArgumentList @("-ExecutionPolicy Remot
 # Settings
 #
 Write-Host "PwshCustomzation:OSConfiguration:Timezone:PST"
-Set-Timezone -ID "Pacific Standard Time"
+tzutil /s "Pacific Standard Time"
 # Clean-up Desktop
 Write-Host "PwshCustomzation:OSConfiguration:Clean:Desktop"
 Get-ChildItem -Path "C:\Users\Public\Desktop" | Where-Object {$_.Name -like "*.lnk"} | Remove-Item -Force -ErrorAction SilentlyContinue
+# Disable prompt for file/printer sharing
+netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=No
